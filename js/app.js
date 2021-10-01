@@ -1,30 +1,41 @@
 const boxes = document.querySelectorAll('.parent div');
+const boxesArray = [1,2,3,4,5,6,7,8,9];
+let playerMoves = '';
+let computerMoves = '';
 
-let filledBoxes = [];
-let boxesArray = [1,2,3,4,5,6,7,8,9];
 
+// ******* player move ******* //
 for (let i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener('click',(e)=> {
 
+        const index = boxesArray.indexOf(parseInt(e.target.dataset.name));
 
-        let index = boxesArray.indexOf(parseInt(e.target.dataset.name));
-        // console.log(index+1);
-
-        boxesArray.splice((index),1);
         e.target.style.backgroundColor = 'red';
-        // console.log(boxesArray);
-
-        setTimeout(()=>{
-            let randomPick = Math.floor(Math.random()*10)%boxesArray.length;
-            boxes[randomPick].style.backgroundColor = 'green';
-            index = boxesArray.indexOf(boxes[randomPick]);
-            boxesArray.splice(index,1);
-            console.log(boxesArray);
+        boxesArray.splice(index,1);
+        playerMoves += (e.target.dataset.name);
+        console.log(playerMoves)
 
 
+        // computer move invoked
+        setTimeout(()=> {
+            computerPlay();
         },1000)
 
     })
+}
+
+// ******* computer move ******* //
+function computerPlay() {
+        
+    const randomPick = Math.floor(Math.random()*10)%boxesArray.length;
+    const indexValue = boxesArray[randomPick];
+
+    boxes[(indexValue-1)].style.backgroundColor = 'green';
+    boxesArray.splice((randomPick),1);
+    computerMoves += indexValue;
+    console.log(computerMoves)
+
+        
 }
 
 
