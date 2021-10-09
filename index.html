@@ -5,21 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Tic Toe Toe</title>
+    <title>Tic Toc Toe</title>
 </head>
 <body>
     <div class="container">
-        <div class="parent">
-            <div class="box1"  data-name="1" ></div>
-            <div class="box2"  data-name="2" ></div>
-            <div class="box3"  data-name="3" ></div>
-            <div class="box4"  data-name="4" ></div>
-            <div class="box5"  data-name="5" ></div>
-            <div class="box6"  data-name="6" ></div>
-            <div class="box7"  data-name="7" ></div>
-            <div class="box8"  data-name="8" ></div>
-            <div class="box9"  data-name="9" ></div>
+
+        <!-- game start page -->
+        <section class="introduction" >
+            <h1>Tic Toc Toe</h1>
+            <button class="btn">Let's Play</button>
+            <input class="playerName" type="text" placeholder="enter your name" maxlength="10">
+        </section>
+
+        <!-- game page -->
+        <div class="game fadeOut">
+            <div class="box1 box left top"  data-name="1" ></div>
+            <div class="box2 box top"  data-name="2" ></div>
+            <div class="box3 box top right"  data-name="3" ></div>
+            <div class="box4 box left"  data-name="4" ></div>
+            <div class="box5 box"  data-name="5" ></div>
+            <div class="box6 box right"  data-name="6" ></div>
+            <div class="box7 box left bottom"  data-name="7" ></div>
+            <div class="box8 box bottom"  data-name="8" ></div>
+            <div class="box9 box bottom right"  data-name="9" ></div>
             
+        </div>
+
+         <!-- result popup -->
+         <div id="popup1" class="overlay">  
+            <div class="popup">
+                <h2 id="msg">Player won</h2>
+                <a class="close" href=# >X</a>
+                
+                <button id="play-again" >
+                    Play again 
+                </button>
+            </div>
+
         </div>
     </div>
 
