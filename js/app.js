@@ -11,10 +11,12 @@ function startGame() {
     const playBtn = document.querySelector('.introduction button');
     const introScreen = document.querySelector('.introduction');
     const gameScreen = document.querySelector('.game');
+    const title = document.querySelector('.title');
 
 
     playBtn.addEventListener('click',()=> {
         introScreen.classList.add('fadeOut');
+        title.classList.remove('fadeOut');
         gameScreen.classList.remove('fadeOut');
 
 
