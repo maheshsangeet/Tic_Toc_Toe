@@ -1,9 +1,8 @@
 const boxes = document.querySelectorAll('.game div');
-const boxesArray = [1,2,3,4,5,6,7,8,9];
+let boxesArray = [1,2,3,4,5,6,7,8,9];
 const moves = ['123','456','789','147','258','369','159','357'];
 let playerSelected = '';
 let win = '';
-let red = 'rgb(78, 239, 245)';
 const playerName = document.querySelector('.playerName');
 
 
@@ -35,7 +34,6 @@ function playerMoves() {
 
         const index = boxesArray.indexOf(parseInt(e.target.dataset.name));
   
-        // e.target.style.backgroundColor = `${red}`;
         e.target.innerText = 'X';
 
         boxesArray.splice(index,1);
@@ -43,11 +41,13 @@ function playerMoves() {
         // console.log(playerSelected+'player moves')
   
   
-        if(playerSelected.length == 3 || playerSelected.length == 4 ){
+        if(playerSelected.length == 3 || playerSelected.length == 4 || playerSelected.length == 5){
           playerMovesCheck(e); 
-        }else if (playerSelected.length == 5){
-          console.log('draw');
         }
+        // else if (playerSelected.length == 5){
+        //   playerMovesCheck(e); 
+        //   console.log('draw');
+        // }
   
   
         // computer moves invoked
@@ -73,7 +73,6 @@ function playerMoves() {
       const randomPick = Math.floor(Math.random()*10)%boxesArray.length;
       const indexValue = boxesArray[randomPick];
   
-      // boxes[(indexValue-1)].style.backgroundColor = 'green';
       boxes[(indexValue-1)].innerText = 'O';
       boxesArray.splice((randomPick),1);
       computerSelected += indexValue;
@@ -95,15 +94,14 @@ function playerMoves() {
       }
   
       if(check.length ==3){
-        win = `${playerName.value} won`;
-  
+        console.log(check)
+        win = "Player won";
         congratulations();
   
-      }else if(check.length ==4) {
-        win = `${playerName.value} won`;
-  
+      }else if(playerSelected.length == 5) {
+        win = "Its a Tie";
         congratulations();
-  
+
       }
   
     }
@@ -125,12 +123,10 @@ function playerMoves() {
   
   
       if(check.length ==3){
-        win = 'computer won';
-        console.log('winner computer');
+        win = 'Computer won';
         congratulations();
       }else if(check.length ==4) {
-        win = 'computer won';
-        console.log('winner computer');
+        win = 'Computer won';
         congratulations();
       }
     }
@@ -164,6 +160,10 @@ function playAgain(){
     }
     
     modal.id="";
+    playerSelected = ''; 
+    computerSelected = '';
+    boxesArray = [1,2,3,4,5,6,7,8,9];
+
 
   });
 }

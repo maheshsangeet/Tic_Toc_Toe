@@ -33,7 +33,6 @@ html {
 }
 .introduction h1 {
   font-size: 7rem;
-  margin-top: 5rem;
 
 }
 .btn {
@@ -44,9 +43,9 @@ html {
   color: rgba(248, 239, 239, 0.719);
   box-shadow: 0 1px 5px 1px black;
   font-size: 2.2rem;
-  padding: 1rem 3rem;
+  padding: .5rem 3rem;
   border-radius: 3px;
-  margin-top: 5rem;
+  margin-bottom: 15rem;
 }
 
 .introduction button:hover {
@@ -57,26 +56,6 @@ html {
 
 }
 
-.playerName {
-  font-size: 2rem;
-  padding: .8rem;
-  margin-top: 10rem;
-  background: transparent;
-  border: none;
-  text-align: center;
-  outline: none;
-  color: #ffff;
-  border-radius: 5px;
-}
-.playerName:hover {
-  background-color: rgb(12, 12, 12);
-}
-.playerName:focus {
-  background-color: rgb(36, 36, 35);
-}
-.playerScore h2 {
-  text-transform: capitalize;
-}
 
 /***** game page  ****/
 .game {
@@ -101,7 +80,6 @@ html {
   font-size: 10rem;
   font-family: 'Kalam', cursive;
   text-align: center;
-  /* padding: 1px; */
   border:1px solid rgb(30, 202, 245);
 
 }
